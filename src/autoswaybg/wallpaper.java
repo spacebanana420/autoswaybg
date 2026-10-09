@@ -1,8 +1,8 @@
 package autoswaybg;
 
 import autoswaybg.cli.cli;
-import autoswaybg.io.stdout;
-import autoswaybg.io.process;
+import autoswaybg.io.*;
+
 import java.util.ArrayList;
 import java.io.File;
 
@@ -23,7 +23,10 @@ public class wallpaper {
       return;
     }
     if (isDir) setWallpaperDirectory(wallpaperPath);
-    else setWallpaper(wallpaperPath, true);
+    else {
+      setWallpaper(wallpaperPath, true);
+      fileio.updateWayfireConfig("swaybg -i \""+wallpaperPath+"\"");      
+    }
   }
 
   //Set a single image as wallpaper
@@ -43,18 +46,20 @@ public class wallpaper {
   private static void setWallpaperDirectory(String path) {
     var wallpapers = getWallpapersFromPath(path);
     int time = cli.getWallpaperTime();
+    int time_ms;
     if (time == -1) {
       stdout.print("Using default time of 30 seconds.");
-      time = 30000;
+      time_ms = 30000;
     }
     else {
       stdout.print("Cycling between wallpapers every "+time+" seconds.");
-      time = time * 1000;
+      time_ms = time * 1000;
     }
+    fileio.updateWayfireConfig("autoswaybg -t "+time+" \""+path+"\"");      
     while (true) {
       for (String wallpaper : wallpapers) {
         setWallpaper(wallpaper, false);
-        try {Thread.sleep(time);}
+        try {Thread.sleep(time_ms);}
         catch (InterruptedException e) {stdout.error("Process was unexpectedly interrupted.");}
       }
     }
