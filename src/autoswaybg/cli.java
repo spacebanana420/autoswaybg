@@ -6,7 +6,8 @@ public class cli {
   private static String[] args; //The CLI arguments assigned by main()
 
   public static void setArgs(String[] cliArgs) {args = cliArgs;}
-  
+
+  public static boolean hasNoArguments() {return args.length == 0;}
   public static boolean getHelp() {return argumentExists("-h", "--help");}
   public static boolean verboseOutput() {return argumentExists("-v", "--verbose");}
   public static boolean debugOutput() {return argumentExists("-d", "--debug");}

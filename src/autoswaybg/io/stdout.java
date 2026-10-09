@@ -7,10 +7,10 @@ import java.util.ArrayList;
 public class stdout {
   private static byte PRINT_LEVEL = 1; //Value is assigned in main.java using setPrintLevel()
   
-  public static void setPrintLevel(String[] args) {
-    if (cli.quietOutput(args)) PRINT_LEVEL = 0;
-    if (cli.verboseOutput(args)) PRINT_LEVEL = 2;
-    if (cli.debugOutput(args)) PRINT_LEVEL = 3;
+  public static void setPrintLevel() {
+    if (cli.quietOutput()) PRINT_LEVEL = 0;
+    if (cli.verboseOutput()) PRINT_LEVEL = 2;
+    if (cli.debugOutput()) PRINT_LEVEL = 3;
     PRINT_LEVEL = 1;
   }
   

@@ -2,11 +2,13 @@ package autoswaybg;
 
 public class main {
   public static void main(String[] args) {
-    
+    init(args);
+    if (cli.hasNoArguments()) return;
   }
 
-  //Defines all public static variables
+  //Defines static variables throughout different classes
   private static void init(String[] args) {
     cli.setArgs(args);
+    stdout.setPrintLevel();
   }
 }
