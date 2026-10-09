@@ -13,6 +13,7 @@ public class stdout {
     else if (cli.debugOutput()) PRINT_LEVEL = 3;
     else PRINT_LEVEL = 1;
   }
+  public static boolean isDebugMode() {return PRINT_LEVEL == 3;}
   
   public static void print(String message) {
     if (PRINT_LEVEL > 0) {System.out.println(message);}
@@ -42,14 +43,14 @@ public class stdout {
     if (PRINT_LEVEL > 0) {System.err.println(message);}
   }
 
-  private static void printSeq(String title, String[] contents) {
+  public static void printSeq(String title, String... contents) {
     String txt = title;
     for (String c : contents) {txt += "\n  * " + c;}
     
     System.out.println(txt);
   }
   
-  private static void printSeq(String title, ArrayList<String> contents) {
+  public static void printSeq(String title, ArrayList<String> contents) {
     String txt = title;
     for (String c : contents) {txt += "\n  * " + c;}
     

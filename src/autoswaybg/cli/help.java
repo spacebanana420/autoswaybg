@@ -2,6 +2,7 @@ package autoswaybg.cli;
 
 import autoswaybg.io.stdout;
 
+//The program's help screens
 public class help {
   private static final String version = "0.1";
   

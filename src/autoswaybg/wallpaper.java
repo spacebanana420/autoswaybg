@@ -6,6 +6,7 @@ import autoswaybg.io.process;
 import java.util.ArrayList;
 import java.io.File;
 
+//Class that can set a single wallpaper or cycle between many in a path
 public class wallpaper {
   public static void setWallpaper() {
     String wallpaperPath = cli.getWallpaperPath();
@@ -25,6 +26,7 @@ public class wallpaper {
     else setWallpaper(wallpaperPath, true);
   }
 
+  //Set a single image as wallpaper
   private static void setWallpaper(String path, boolean checkFormat) {
     if (checkFormat || supportedFormat(path)) {
       stdout.print("Setting wallpaper at path "+path);
@@ -37,6 +39,7 @@ public class wallpaper {
     );
   }
 
+  //Parse the files of a directory, the ones that are valid images are set as wallpapers
   private static void setWallpaperDirectory(String path) {
     var wallpapers = getWallpapersFromPath(path);
     int time = cli.getWallpaperTime();
@@ -56,10 +59,11 @@ public class wallpaper {
       }
     }
   }
-  
+
+  //swaybg supports PNG out of the box, but with potential to support the other formats specified below if pixbuf is installed
   private static boolean supportedFormat(String path) {
     int start_i = -1; //Where the file extension starts
-    for (int i = path.length()-1; i >= 0; i--) {
+    for (int i = path.length()-1; i >= 0; i--) { //Find the start of the extension in the file name by looking for "."
       if (path.charAt(i) == '.') {start_i = i; break;}
     }
     if (start_i == -1) return false;
@@ -72,6 +76,7 @@ public class wallpaper {
     return false;
   }
 
+  //Retrieves the files from a path that count as valid images that swaybg can read
   private static ArrayList<String> getWallpapersFromPath(String path) {
     var images = new ArrayList<String>();
     String[] subpaths = new File(path).list();

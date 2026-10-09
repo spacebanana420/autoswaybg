@@ -2,6 +2,7 @@ package autoswaybg.cli;
 
 import autoswaybg.io.stdout;
 
+//CLI parsing class
 public class cli {
   private static String[] args; //The CLI arguments assigned by main()
 

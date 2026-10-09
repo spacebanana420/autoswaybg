@@ -2,6 +2,7 @@ package autoswaybg.io;
 
 import java.io.IOException;
 
+//Class for running external processes, in this case swaybg and pkill
 public class process {
   public static boolean swaybg_setWallpaper(String wallpaperPath) {
     exec(true, "pkill", "-x", "swaybg");
@@ -9,7 +10,8 @@ public class process {
     return p != null;
   }
   
-  public static Process exec(boolean awaitCompletion, String... args) {
+  private static Process exec(boolean awaitCompletion, String... args) {
+    if (stdout.isDebugMode()) {stdout.printSeq("Executing process with arguments:", args);}
     try {
       var pb = new ProcessBuilder(args);
       Process p = pb.start();

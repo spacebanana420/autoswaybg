@@ -5,4 +5,19 @@ The process of changing the current wallpaper is very manual on swaybg: it requi
 On window managers like Wayfire, Labwc, Hyprland, etc, you then also have to update their respective config file and change the swaybg command that runs on start to the new one.
 This program aims to automate all of that.
 
-**This project is brand new and a work-in-progress, it's not usable yet**
+## Requirements
+* Java 11 or newer
+* swaybg
+* wayfire
+* UNIX-like system with `pkill` program
+
+## Download
+
+You can download autoswaybg from the [releases page](https://github.com/spacebanana420/autoswaybg/releases).
+
+You can run `java -jar autoswaybg.jar` and open the help screen to see what you can do.
+
+### Install on your system (using [Yuuka](https://github.com/spacebanana420/yuuka))
+```
+yuuka install autoswaybg.jar
+```
