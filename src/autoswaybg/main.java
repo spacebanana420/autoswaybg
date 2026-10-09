@@ -8,6 +8,7 @@ public class main {
     init(args);
     if (cli.hasNoArguments()) {help.printSmallHelp(); return;}
     if (cli.getHelp()) {help.printHelp(); return;}
+    wallpaper.setWallpaper();
   }
 
   //Defines static variables throughout different classes
