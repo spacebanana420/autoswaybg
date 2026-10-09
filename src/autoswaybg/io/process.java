@@ -6,7 +6,7 @@ public class process {
   public static boolean swaybg_setWallpaper(String wallpaperPath) {
     exec(true, "pkill", "-x", "swaybg");
     Process p = exec(false, "swaybg", "-i", wallpaperPath);
-    return p != null && p.exitValue() == 0;
+    return p != null;
   }
   
   public static Process exec(boolean awaitCompletion, String... args) {

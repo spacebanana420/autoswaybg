@@ -41,7 +41,7 @@ public class wallpaper {
   
   private static boolean supportedFormat(String path) {
     int start_i = -1; //Where the file extension starts
-    for (int i = path.length(); i >= 0; i--) {
+    for (int i = path.length()-1; i >= 0; i--) {
       if (path.charAt(i) == '.') {start_i = i; break;}
     }
     if (start_i == -1) return false;
