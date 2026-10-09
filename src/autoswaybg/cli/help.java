@@ -25,4 +25,12 @@ public class help {
     ;
     stdout.print(text);
   }
+  public static void printSmallHelp() {
+    String text =
+      "autoswaybg version " + version
+      +"\nUsage: autoswaybg <options> <path to image>"
+      +"\nRun \"autoswaybg -h\" or \"autoswaybg --help\" to see the full list of options"
+    ;
+    stdout.print(text);
+  }
 }

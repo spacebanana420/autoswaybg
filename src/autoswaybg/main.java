@@ -6,7 +6,8 @@ import autoswaybg.cli.*;
 public class main {
   public static void main(String[] args) {
     init(args);
-    if (cli.hasNoArguments()) return;
+    if (cli.hasNoArguments()) {help.printSmallHelp(); return;}
+    if (cli.getHelp()) {help.printHelp(); return;}
   }
 
   //Defines static variables throughout different classes
