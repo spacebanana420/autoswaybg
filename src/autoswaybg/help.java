@@ -1,10 +1,11 @@
 package autoswaybg.cli;
 
+import autoswaybg.global;
 import autoswaybg.io.stdout;
 
 public class help {
-  public static final String version = "0.1";
-
+  private static final String version = "0.1";
+  
   public static void printHelp() {
     String text =
       "autoswaybg version " + version

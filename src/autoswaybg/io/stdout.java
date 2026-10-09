@@ -5,13 +5,13 @@ import java.util.ArrayList;
 
 //Class for printing messages and errors to standard output
 public class stdout {
-  public static byte PRINT_LEVEL = 1; //Value is assigned in main.java using getPrintLevel()
+  private static byte PRINT_LEVEL = 1; //Value is assigned in main.java using setPrintLevel()
   
-  public static byte getPrintLevel(String[] args) {
-    if (cli.quietOutput(args)) return 0;
-    if (cli.verboseOutput(args)) return 2;
-    if (cli.debugOutput(args)) return 3;
-    return 1;
+  public static void setPrintLevel(String[] args) {
+    if (cli.quietOutput(args)) PRINT_LEVEL = 0;
+    if (cli.verboseOutput(args)) PRINT_LEVEL = 2;
+    if (cli.debugOutput(args)) PRINT_LEVEL = 3;
+    PRINT_LEVEL = 1;
   }
   
   public static void print(String message) {
