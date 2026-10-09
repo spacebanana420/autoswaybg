@@ -1,5 +1,8 @@
 package autoswaybg;
 
+import autoswaybg.io.stdout;
+import autoswaybg.cli.*;
+
 public class main {
   public static void main(String[] args) {
     init(args);

@@ -14,7 +14,7 @@ public class cli {
   public static boolean quietOutput() {return argumentExists("-q", "--quiet");}
   public static boolean disableConfigUpdate() {return argumentExists("-nc", "--no-config");}
 
-  public static int getWallpaperTime() {return getArgumentInt("-t", "--time");}
+  public static int getWallpaperTime() {return getArgumentInt(false, "-t", "--time");}
   public static String getConfigPath() {return getArgumentValue("-c", "--config");}
   public static String getWallpaperPath() {
     String firstArgument = args[0];
@@ -47,9 +47,9 @@ public class cli {
     }
     return value;
   }
-  private static int getArgumentInt(String... searchArgs, boolean rejectNegativeNumbers) {
+  private static int getArgumentInt(boolean rejectNegativeNumbers, String... searchArgs) {
     String value = getArgumentValue(searchArgs);
-    if (value == null) return null;
+    if (value == null) return -1;
     try {
       int value_i = Integer.parseInt(value);
       if (rejectNegativeNumbers && value_i < 0) {

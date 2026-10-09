@@ -1,6 +1,5 @@
 package autoswaybg.cli;
 
-import autoswaybg.global;
 import autoswaybg.io.stdout;
 
 public class help {
