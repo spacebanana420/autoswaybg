@@ -11,7 +11,10 @@ import java.nio.file.Files;
 public class fileio {
   //Read the wayfire INI config, find the autostart option that has the swaybg or autoswaybg command, replace it with one that uses the new wallpaper
   public static void updateWayfireConfig(String command) {
-    if (cli.disableConfigUpdate()) {stdout.print_verbose("Wayfire config update was disabled, ignoring config file"); return;}
+    if (cli.disableConfigUpdate()) {
+      stdout.print_verbose("Wayfire config update was disabled, ignoring config file");
+      return;
+    }
 
     String configPath = cli.getConfigPath();
     if (configPath == null) configPath = System.getProperty("user.home")+"/.config/wayfire.ini"; //Also needs checking if file exists
@@ -24,7 +27,7 @@ public class fileio {
     for (int i = 0; i < config.length; i++) { //Limit the lines to parse, only the config inside [autostart] matters for Wayfire
       String line = config[i].trim();
       if (config_start == -1 && line.toLowerCase().equals("[autostart]")) config_start = i+1;
-      else if (line.length() >= 2 && line.charAt(0) == '[' && line.charAt(line.length()-1) == ']') config_end = i; //Check for the next category in Wayfire config, for example [core]
+      else if (line.length() >= 2 && line.charAt(0) == '[' && line.charAt(line.length()-1) == ']') config_end = i; //Check for the next category in Wayfire config, for example [core], this means [autostart] ended
     }
 
     boolean foundSetting = false;
@@ -37,7 +40,7 @@ public class fileio {
         break;
       }
     }
-    if (!foundSetting) { //The Wayfire INI didn't have any wallpaper command on autostart yet, add one
+    if (!foundSetting) { //If the Wayfire INI didn't have any wallpaper command on autostart yet, add one
       config[config_start] = "wallpaper = "+command+"\n"+config[config_start];
     }
     writeFile(configPath, config);

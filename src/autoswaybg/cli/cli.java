@@ -1,6 +1,7 @@
 package autoswaybg.cli;
 
 import autoswaybg.io.stdout;
+import java.io.File;
 
 //CLI parsing class
 public class cli {
@@ -16,7 +17,25 @@ public class cli {
   public static boolean disableConfigUpdate() {return argumentExists("-nc", "--no-config");}
 
   public static int getWallpaperTime() {return getArgumentInt(false, "-t", "--time");}
-  public static String getConfigPath() {return getArgumentValue("-c", "--config");}
+  public static String getConfigPath() {
+    String path = getArgumentValue("-c", "--config");
+    if (path == null) return null;
+
+    File f = new File(path);
+    if (!f.isFile()) {
+      stdout.error("The config file path "+path+" does not lead to a valid file!");
+      return null;
+    }
+    if (!f.canRead()) {
+      stdout.error("The config file path "+path+" lacks read permission!");
+      return null;
+    }
+    if (!f.canWrite()) {
+      stdout.error("The config file path "+path+" lacks write permission!");
+      return null;
+    }
+    return path;
+  }
   public static String getWallpaperPath() {
     String firstArgument = args[0];
     String lastArgument = args.length > 1 ? args[args.length-1] : null;
