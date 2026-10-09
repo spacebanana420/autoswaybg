@@ -9,9 +9,9 @@ public class stdout {
   
   public static void setPrintLevel() {
     if (cli.quietOutput()) PRINT_LEVEL = 0;
-    if (cli.verboseOutput()) PRINT_LEVEL = 2;
-    if (cli.debugOutput()) PRINT_LEVEL = 3;
-    PRINT_LEVEL = 1;
+    else if (cli.verboseOutput()) PRINT_LEVEL = 2;
+    else if (cli.debugOutput()) PRINT_LEVEL = 3;
+    else PRINT_LEVEL = 1;
   }
   
   public static void print(String message) {

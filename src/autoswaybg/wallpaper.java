@@ -52,7 +52,7 @@ public class wallpaper {
       for (String wallpaper : wallpapers) {
         setWallpaper(wallpaper, false);
         try {Thread.sleep(time);}
-        catch (InterruptedException e) {stdout.print("Process was interrupted.");}
+        catch (InterruptedException e) {stdout.error("Process was unexpectedly interrupted.");}
       }
     }
   }
