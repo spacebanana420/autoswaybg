@@ -7,8 +7,8 @@ This program aims to automate all of that.
 
 ## Requirements
 * Java 11 or newer
-* swaybg
-* wayfire
+* [swaybg](https://github.com/swaywm/swaybg)
+* [wayfire](https://github.com/WayfireWM/wayfire) (optional, config update is implemented for Wayfire only)
 
 ## Download
 
