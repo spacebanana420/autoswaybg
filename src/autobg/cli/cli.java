@@ -1,6 +1,6 @@
-package autoswaybg.cli;
+package autobg.cli;
 
-import autoswaybg.io.stdout;
+import autobg.io.stdout;
 import java.io.File;
 
 //CLI parsing class

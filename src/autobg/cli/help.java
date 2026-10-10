@@ -1,19 +1,19 @@
-package autoswaybg.cli;
+package autobg.cli;
 
-import autoswaybg.io.stdout;
+import autobg.io.stdout;
 
 //The program's help screens
 public class help {
-  private static final String version = "0.1";
+  private static final String version = "1.0";
   
   public static void printHelp() {
     String text =
-      "autoswaybg version " + version
-      +"\nUsage: autoswaybg <options> <path to image>"
+      "autobg version " + version
+      +"\nUsage: autobg <options> <path to image>"
 
       +"\n\n[Examples]"
-      +"\nSet a wallpaper and save it in Wayfire: autoswaybg /path/to/image.png"
-      +"\nCycle between wallpapers inside a path every 30 seconds: autoswaybg -t 30 /path/to/wallpaper-directory/"
+      +"\nSet a wallpaper and save it in Wayfire: autobg /path/to/image.png"
+      +"\nCycle between wallpapers inside a path every 30 seconds: autobg -t 30 /path/to/wallpaper-directory/"
   
       +"\n\n[Available options]"
       +"\n  * -h (--help)            prints this screen"
@@ -28,9 +28,9 @@ public class help {
   }
   public static void printSmallHelp() {
     String text =
-      "autoswaybg version " + version
-      +"\nUsage: autoswaybg <options> <path to image>"
-      +"\nRun \"autoswaybg -h\" or \"autoswaybg --help\" to see the full list of options"
+      "autobg version " + version
+      +"\nUsage: autobg <options> <path to image>"
+      +"\nRun \"autobg -h\" or \"autobg --help\" to see the full list of options"
     ;
     stdout.print(text);
   }

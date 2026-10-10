@@ -1,7 +1,7 @@
-package autoswaybg;
+package autobg;
 
-import autoswaybg.io.stdout;
-import autoswaybg.cli.*;
+import autobg.io.stdout;
+import autobg.cli.*;
 
 public class main {
   public static void main(String[] args) {

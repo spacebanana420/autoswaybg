@@ -1,6 +1,6 @@
-package autoswaybg.io;
+package autobg.io;
 
-import autoswaybg.cli.cli;
+import autobg.cli.cli;
 import java.util.ArrayList;
 
 //Class for printing messages and errors to standard output

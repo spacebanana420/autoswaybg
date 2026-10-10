@@ -1,4 +1,4 @@
-package autoswaybg.io;
+package autobg.io;
 
 import java.io.IOException;
 

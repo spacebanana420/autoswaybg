@@ -1,6 +1,6 @@
-package autoswaybg.io;
+package autobg.io;
 
-import autoswaybg.cli.cli;
+import autobg.cli.cli;
 
 import java.io.IOException;
 import java.io.FileOutputStream;
@@ -32,7 +32,7 @@ public class fileio {
 
     boolean foundSetting = false;
     for (int i = config_start; i < config_end; i++) { //Find the autostart setting that runs swaybg or autoswaybg
-      if (config[i].contains("swaybg") || config[i].contains("autoswaybg")) {
+      if (config[i].contains("swaybg") || config[i].contains("autobg")) {
         String newLine = wayfire_replaceLine(config[i], command);
         stdout.print_debug("Replacing line in Wayfire config\n * Before: "+config[i]+"\n * Now: "+newLine);
         config[i] = newLine;

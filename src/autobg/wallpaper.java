@@ -1,7 +1,7 @@
-package autoswaybg;
+package autobg;
 
-import autoswaybg.cli.cli;
-import autoswaybg.io.*;
+import autobg.cli.cli;
+import autobg.io.*;
 
 import java.util.ArrayList;
 import java.io.File;
@@ -55,7 +55,7 @@ public class wallpaper {
       stdout.print("Cycling between wallpapers every "+time+" seconds.");
       time_ms = time * 1000;
     }
-    fileio.updateWayfireConfig("autoswaybg -t "+time+" \""+path+"\"");      
+    fileio.updateWayfireConfig("autobg -t "+time+" \""+path+"\"");      
     while (true) {
       for (String wallpaper : wallpapers) {
         setWallpaper(wallpaper, false);
